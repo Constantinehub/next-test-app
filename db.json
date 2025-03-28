@@ -1,0 +1,194 @@
+{
+  "posts": [
+    {
+      "userId": 1,
+      "id": 101,
+      "title": "The Future of AI in Everyday Life",
+      "body": "Artificial intelligence is rapidly transforming various industries...",
+      "category": "Technology",
+      "rating": 4.8,
+      "comments": [
+        {
+          "userId": 2,
+          "id": 201,
+          "date": "2025-03-28T12:00:00Z",
+          "body": "This is a fascinating topic! AI is evolving so quickly."
+        },
+        {
+          "userId": 3,
+          "id": 202,
+          "date": "2025-03-28T12:30:00Z",
+          "body": "I'm excited but also a bit worried about AI taking over jobs."
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "id": 102,
+      "title": "Stock Market Trends in 2025",
+      "body": "This year has seen significant fluctuations in global markets...",
+      "category": "Business & Finance",
+      "rating": 4.5,
+      "comments": [
+        {
+          "userId": 4,
+          "id": 203,
+          "date": "2025-03-28T13:00:00Z",
+          "body": "Great insights! I'm thinking of investing more in tech stocks."
+        }
+      ]
+    },
+    {
+      "userId": 3,
+      "id": 103,
+      "title": "Top 10 Destinations to Visit This Year",
+      "body": "Traveling is back! Here are some of the best places to explore...",
+      "category": "Lifestyle",
+      "rating": 4.7,
+      "comments": [
+        {
+          "userId": 5,
+          "id": 204,
+          "date": "2025-03-28T14:00:00Z",
+          "body": "I love traveling! Adding these places to my bucket list."
+        },
+        {
+          "userId": 6,
+          "id": 205,
+          "date": "2025-03-28T14:15:00Z",
+          "body": "Great recommendations! Any budget-friendly options?"
+        }
+      ]
+    },
+    {
+      "userId": 4,
+      "id": 104,
+      "title": "New Health Trends in 2025",
+      "body": "From plant-based diets to advanced fitness tracking...",
+      "category": "Health & Wellness",
+      "rating": 4.6,
+      "comments": [
+        {
+          "userId": 7,
+          "id": 206,
+          "date": "2025-03-28T15:00:00Z",
+          "body": "I've been trying intermittent fasting, and it really works!"
+        }
+      ]
+    },
+    {
+      "userId": 5,
+      "id": 105,
+      "title": "Latest Space Discoveries: What’s Out There?",
+      "body": "Scientists have found new exoplanets that may support life...",
+      "category": "Science",
+      "rating": 4.9,
+      "comments": [
+        {
+          "userId": 8,
+          "id": 207,
+          "date": "2025-03-28T16:00:00Z",
+          "body": "I love space exploration! The universe is so vast and unknown."
+        },
+        {
+          "userId": 9,
+          "id": 208,
+          "date": "2025-03-28T16:15:00Z",
+          "body": "Do you think humans will ever colonize another planet?"
+        }
+      ]
+    },
+    {
+      "userId": 6,
+      "id": 106,
+      "title": "Hollywood’s Biggest Hits & Misses This Year",
+      "body": "A breakdown of the top-grossing movies and the biggest flops...",
+      "category": "Entertainment",
+      "rating": 4.3,
+      "comments": [
+        {
+          "userId": 10,
+          "id": 209,
+          "date": "2025-03-28T17:00:00Z",
+          "body": "I was really disappointed with some sequels this year."
+        }
+      ]
+    },
+    {
+      "userId": 7,
+      "id": 107,
+      "title": "Premier League Season Recap",
+      "body": "A deep dive into the teams, players, and best moments...",
+      "category": "Sports",
+      "rating": 4.7,
+      "comments": [
+        {
+          "userId": 11,
+          "id": 210,
+          "date": "2025-03-28T18:00:00Z",
+          "body": "What a season! So many unexpected upsets."
+        },
+        {
+          "userId": 12,
+          "id": 211,
+          "date": "2025-03-28T18:15:00Z",
+          "body": "Who do you think was the best player this season?"
+        }
+      ]
+    },
+    {
+      "userId": 8,
+      "id": 108,
+      "title": "Minimalist Living: How to Declutter Your Life",
+      "body": "Less is more! Tips on simplifying your lifestyle...",
+      "category": "Lifestyle",
+      "rating": 4.6,
+      "comments": [
+        {
+          "userId": 13,
+          "id": 212,
+          "date": "2025-03-28T19:00:00Z",
+          "body": "I started decluttering last year, and it’s been life-changing!"
+        }
+      ]
+    },
+    {
+      "userId": 9,
+      "id": 109,
+      "title": "The Rise of Cybercrime & How to Protect Yourself",
+      "body": "With increasing digital threats, staying safe online is crucial...",
+      "category": "Crime & Law",
+      "rating": 4.8,
+      "comments": [
+        {
+          "userId": 14,
+          "id": 213,
+          "date": "2025-03-28T20:00:00Z",
+          "body": "Two-factor authentication has saved me from getting hacked!"
+        }
+      ]
+    },
+    {
+      "userId": 10,
+      "id": 110,
+      "title": "Global Climate Change: What’s Next?",
+      "body": "The latest research on climate change and how we can make a difference...",
+      "category": "World News",
+      "rating": 4.9,
+      "comments": [
+        {
+          "userId": 15,
+          "id": 214,
+          "date": "2025-03-28T21:00:00Z",
+          "body": "We need to take action now! Sustainable energy is the future."
+        },
+        {
+          "userId": 16,
+          "id": 215,
+          "date": "2025-03-28T21:15:00Z",
+          "body": "More governments should commit to reducing carbon emissions."
+        }
+      ]
+    }
+  ]
+}
