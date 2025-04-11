@@ -1,42 +1,49 @@
 'use client';
 
-import { useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { TextField } from '@mui/material';
 
-import { usePosts } from '@/store/usePostStore';
+import useSearch from '@/store/useSearch';
+import useDebounce from '@/hooks/useDebounce';
 
 const Search = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const getAllPostsBySearch = usePosts((state) => state.getAllPostsBySearch);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const setQuery = useSearch((state) => state.setQuery);
+  const debouncedQuery = useDebounce(searchQuery, 1000);
 
-  const handleSearch = () => {
-    console.log('searching ', searchQuery);
-    getAllPostsBySearch(searchQuery);
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const {
+      target: { value },
+    } = e;
+
+    setSearchQuery(value);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      handleSearch();
       event.preventDefault();
     }
   };
 
+  useEffect(() => {
+    if (debouncedQuery.length) {
+      setQuery(debouncedQuery);
+    }
+  }, [debouncedQuery, setQuery]);
+
   return (
-    <form className='flex items-stretch'>
-      <input
+    <div className='flex items-center ml-auto w-full max-w-[400px]'>
+      <TextField
         value={searchQuery}
-        placeholder='Search...'
-        onChange={(event) => setSearchQuery(event.target.value)}
+        label='Search'
+        size='medium'
+        className='w-full'
+        variant='outlined'
+        placeholder='Type to search news...'
+        onChange={handleSearchChange}
         onKeyDown={handleKeyDown}
-        className='p-3 border bg-white rounded-md w-full'
       />
-      <button
-        type='button'
-        onClick={handleSearch}
-        className='px-3 ml-2 bg-sky-600 text-white font-bold uppercase rounded-md'
-      >
-        Search
-      </button>
-    </form>
+    </div>
   );
 };
 

@@ -1,23 +1,42 @@
-import { Post } from '@/types/postTypes';
+import * as uuid from 'uuid';
+import { API, get } from '@/services/api';
+import { URL_EVERYTHING } from '@/utils/constants';
+import { NewsParams, NewsData, Article } from '@/types/newsTypes';
 
-export async function getPosts(): Promise<Post[]> {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+export async function getNewsByCategory(params: NewsParams): Promise<NewsData> {
+  try {
+    const response = await get<NewsData>(API, URL_EVERYTHING, {
+      params,
+    });
 
-  return response.json();
+    const { articles = [], totalResults = 0 } = response || {};
+
+    return {
+      articles: articles.map((item) => ({
+        ...item,
+        id: uuid.v4(),
+      })),
+      totalResults,
+    };
+  } catch (error) {
+    throw error;
+  }
 }
 
-export async function getMockedPosts(): Promise<Post[]> {
-  const response = await fetch('http://localhost:4000/posts');
+export async function updateNewsItem(
+  data: Article
+): Promise<{ status: string }> {
+  console.log('UPDATED DATA ', data);
 
-  if (!response.ok) throw new Error('Unable to fetch posts.');
+  try {
+    const response = await new Promise<{ status: string }>((resolve) =>
+      setTimeout(() => resolve({ status: 'OK' }), 1500)
+    );
 
-  return response.json();
-}
+    const { status } = response || {};
 
-export async function getMockedPostsBySearch(query: string): Promise<Post[]> {
-  const response = await fetch(`http://localhost:4000/posts?q=${query}`);
-
-  if (!response.ok) throw new Error('Unable to fetch posts.');
-
-  return response.json();
+    return { status };
+  } catch (err) {
+    throw err;
+  }
 }

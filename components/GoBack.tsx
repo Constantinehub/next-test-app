@@ -1,17 +1,17 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { IconButton } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { useRouter, usePathname } from 'next/navigation';
 
 const GoBack = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
-    <button
-      onClick={router.back}
-      className="py-2 px-4 rounded-md before:content-['←'] before:mr-2 hover:cursor-pointer bg-amber-300 shadow-md"
-    >
-      Back
-    </button>
+    <IconButton onClick={router.back} disabled={pathname === '/'}>
+      <ChevronLeftIcon />
+    </IconButton>
   );
 };
 

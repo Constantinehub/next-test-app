@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+.list-decor {
+  @apply before:content-["●"] before:text-xl before:mx-2 before:text-stone-500;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
