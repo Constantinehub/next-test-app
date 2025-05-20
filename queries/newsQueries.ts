@@ -1,10 +1,21 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useBaseQuery } from '@/utils/useBaseQuery';
-import { getNewsByCategory, updateNewsItem } from '@/services/getData';
-import { NewsParams, NewsData } from '@/types/newsTypes';
+import {
+  getNews,
+  getSpotifyAuthToken,
+  getTopNewsByCategory,
+  updateNewsItem,
+} from '@/services/getData';
+import { NewsParams, NewsData, TopNewsParams } from '@/types/newsTypes';
 
 export function useNewsByQuery(params: NewsParams) {
-  return useBaseQuery(['news', params.q], () => getNewsByCategory(params));
+  return useBaseQuery(['news', params.q], () => getNews(params));
+}
+
+export function useTopNewsByCategory(params: TopNewsParams) {
+  return useBaseQuery(['top-news-category', params.category], () =>
+    getTopNewsByCategory(params)
+  );
 }
 
 export function useAddNewsQuery(query?: string) {
@@ -19,7 +30,7 @@ export function useAddNewsQuery(query?: string) {
       queryClient.setQueryData(
         queryKey,
         ({ articles = [], ...rest }: NewsData) => {
-          const updatedArticles = articles?.map((item) => {
+          const updatedArticles = articles.map((item) => {
             return item.id === formData.id ? { ...item, ...formData } : item;
           });
 
@@ -35,4 +46,8 @@ export function useAddNewsQuery(query?: string) {
       return { previousNews };
     },
   });
+}
+
+export function useAuthToken() {
+  return useBaseQuery(['auth-token'], () => getSpotifyAuthToken());
 }

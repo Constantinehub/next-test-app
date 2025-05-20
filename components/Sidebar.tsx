@@ -14,6 +14,7 @@ import { menu } from '@/data';
 
 const nunito = Nunito({
   weight: '800',
+  subsets: ['latin'],
 });
 
 function Sidebar() {

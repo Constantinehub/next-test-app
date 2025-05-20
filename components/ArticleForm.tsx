@@ -8,6 +8,7 @@ import { Button, Stack, TextField } from '@mui/material';
 import { useAddNewsQuery } from '@/queries/newsQueries';
 import useSearch from '@/store/useSearch';
 import useNews from '@/store/useNews';
+import Loading from '@/components/Loading';
 
 const schema = z.object({
   author: z.string({
@@ -41,7 +42,7 @@ function ArticleForm(props: Props) {
   const query = useSearch((state) => state.query);
   const setArticle = useNews((state) => state.setArticle);
 
-  const { mutate } = useAddNewsQuery(query);
+  const { mutate, isPending } = useAddNewsQuery(query);
 
   const initialValue = {
     author: author || '',
@@ -63,10 +64,12 @@ function ArticleForm(props: Props) {
       ...data,
     };
 
+    // TODO: feature is still in progress
     mutate(updatedData, {
       onSuccess: (_, updatedArticle) => {
-        onClose();
+        console.log('test ', updatedArticle);
         setArticle(updatedArticle);
+        onClose();
       },
     });
   };
@@ -79,8 +82,9 @@ function ArticleForm(props: Props) {
     <form
       noValidate
       onSubmit={handleSubmit(onSubmit)}
-      className='bg-white p-5 rounded-md'
+      className='bg-white p-5 rounded-md relative'
     >
+      {isPending && <Loading covered />}
       <Stack spacing={3} width='50%'>
         <Controller
           name='author'

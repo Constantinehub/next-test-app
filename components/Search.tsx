@@ -36,10 +36,9 @@ const Search = () => {
       <TextField
         value={searchQuery}
         label='Search'
-        size='medium'
+        size='small'
         className='w-full'
         variant='outlined'
-        placeholder='Type to search news...'
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}
       />
